@@ -14,9 +14,12 @@ function makeTimeline(timelines){
     headerEl.textContent = 'Timeline'
     background.appendChild(headerEl)
 
-    // const timelineItemsEL = document.createElement('div')
-    // timelineItemsEL.classList.add('timeline-items')
-    // background.appendChild(timelineItemsEL)
+    const modalElem = document.createElement('div')
+    modalElem.classList.add("modal","modal-multi")
+
+    const timelineItemsEL = document.createElement('div')
+    timelineItemsEL.classList.add('timeline-items')
+    background.appendChild(timelineItemsEL)
 
    
 
@@ -25,26 +28,22 @@ function makeTimeline(timelines){
 
         const dateEl = document.createElement('div')
         dateEl.classList.add('timeline-item')
-        const modalElem = document.createElement('div')
-        modalElem.classList.add("modal-container","modal-multi")
-        modalElem.id = "hide"
         dateEl.innerHTML =`
                 <div class="info">
                     <span class="timeline-item-date">${date}</span>
-                    <h2 class="timeline-itme-title">${title}</h2>
+                    <h2 class="timeline-item-title">${title}</h2>
                     <p class="timeline-item-summary">${summary} </p>
                     <button class="timeline-item-more-info" id="showButton">Read More</button>
                 </div>
         `
+
         background.appendChild(dateEl)
     })
 
 }
 
 
-
-
-
+// create scroll animation
 const cards = document.querySelectorAll('.info')
 
 window.addEventListener('scroll', checkCards)
