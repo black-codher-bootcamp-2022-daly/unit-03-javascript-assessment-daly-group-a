@@ -18,7 +18,7 @@ function makeTimeline(timelines){
     headerEl.classList.add('timeline-header')
     headerEl.textContent = 'Timeline'
     background.appendChild(headerEl)
-
+    //let num = 1;
     timelines.forEach((item) => {
         const {title, date, fullDescription, image, summary} = item
 
@@ -35,10 +35,15 @@ function makeTimeline(timelines){
                     <button class="timeline-item-more-info" id="showButton">Read More</button>
                 </div>
         `
-       
         background.appendChild(dateEl)
+       
     })
+   
+
+   
 }
+
+
 
 // Animation scrolling 
 
@@ -61,21 +66,65 @@ function checkCards() {
         }
     })
 }
+ // Setting index to each button
+  
+// function setDataIndex() {
+  
+//    for (let i= 0; i<multi_info_displ.length; i ++) 
+//    {
+//      multi_info_displ[i].setAttribute("data-index", i);
+    
+//    }
+  
+   
+// }
+
+// window.onload = function() {
+
+//     setDataIndex();
+// };
+
 
 //WORKING ON CLICK EVENT 
 
-const showButton = document
-.querySelector("#showButton")
+var multi_info_displ = document.querySelector(".timeline-item-more-info")
+for (let i = 0; i < multi_info_displ.length; i++) {
+document
+.querySelector(multi_info_displ[i])
 .addEventListener("click", clickOnShowButton);
 
 function clickOnShowButton() {
- 
-    document.querySelector("#showButton").innerHTML = 
+    //document.body.innerHTML = ''
+    // const paragraph = document.createElement('div')
+    // paragraph.classList.add('div')
+    // document.body.appendChild(paragraph)
+
+
+ dates.forEach((itemFulldescription) => {
+
+
+    const fullDesc = document.createElement('div')
+    fullDesc.classList.add('item-fullDesc')
+
+    const {title, date, fullDescription, image, summary} = itemFulldescription
+    fullDesc.innerHTML = 
     `<div class= "more-info">
     <p class = "full-description">${fullDescription}</p>
     <img class="picture" src="${image}" alt="descriptive image">
     </div>`
+
+    document.body.appendChild(fullDesc)
 }
+)
+}
+
+document.querySelector(".more-info")
+    
+}
+
+
+
+
 
 
 
