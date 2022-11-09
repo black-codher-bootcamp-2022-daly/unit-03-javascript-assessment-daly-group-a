@@ -18,31 +18,63 @@ function makeTimeline(timelines){
     headerEl.classList.add('timeline-header')
     headerEl.textContent = 'Timeline'
     background.appendChild(headerEl)
-    //let num = 1;
+    let num = 1;
     timelines.forEach((item) => {
         const {title, date, fullDescription, image, summary} = item
 
         const dateEl = document.createElement('div')
         dateEl.classList.add('timeline-item')
         const modalElem = document.createElement('div')
-        modalElem.classList.add("modal-container","modal-multi")
+        modalElem.classList.add("modal-container","modal-multi", "modal")
         modalElem.id = "hide"
         dateEl.innerHTML =`
                 <div class="info">
                     <span class="timeline-item-date">${date}</span>
                     <h2 class="timeline-itme-title">${title}</h2>
                     <p class="timeline-item-summary">${summary} </p>
-                    <button class="timeline-item-more-info" id="showButton">Read More</button>
+                    <button class="timeline-item-more-info" id="showButton" data-index=${num}>Read More</button>
                 </div>
         `
+        modalElem.innerHTML = `
+        <div class= "more-info">
+          <p class = "full-description">${fullDescription}</p>
+          <img class="picture" src="${image}" alt="descriptive image">
+          <button class= "multi-close" data-index=${num}>Close</button>
+     </div>`
         background.appendChild(dateEl)
+        modalElem.setAttribute('data-index', num)
+        document.body.appendChild(modalElem)
+        num++
+
        
     })
    
-
-   
 }
+//ON CLICK BUTTON
 
+var multi_modal = document.getElementsByClassName("modal-multi");
+
+// Get the button that opens the modal
+
+var modal_btn_multi = document.getElementsByClassName("timeline-item-more-info");
+
+var close_multi = document.getElementsByClassName("multi-close");
+
+
+for (let i = 0; i < modal_btn_multi.length; i++)
+{
+    modal_btn_multi[i].onclick = function() {
+        var ElementIndex = this.getAttribute('data-index');
+        multi_modal[ElementIndex].id= "show";
+    };
+
+    // When the user clicks on <close button> (x), close the modal
+    close_multi[i].onclick = function() {
+        var ElementIndex = this.getAttribute('data-index');
+        multi_modal[ElementIndex].id = "hide";
+    };
+
+}
 
 
 // Animation scrolling 
@@ -66,6 +98,9 @@ function checkCards() {
         }
     })
 }
+
+
+
  // Setting index to each button
   
 // function setDataIndex() {
@@ -87,40 +122,43 @@ function checkCards() {
 
 //WORKING ON CLICK EVENT 
 
-var multi_info_displ = document.querySelector(".timeline-item-more-info")
-for (let i = 0; i < multi_info_displ.length; i++) {
-document
-.querySelector(multi_info_displ[i])
-.addEventListener("click", clickOnShowButton);
+// var multi_info_displ = document.querySelector(".timeline-item-more-info")
 
-function clickOnShowButton() {
-    //document.body.innerHTML = ''
-    // const paragraph = document.createElement('div')
-    // paragraph.classList.add('div')
-    // document.body.appendChild(paragraph)
+// for (let i = 0; i < multi_info_displ.length; i++) {
+// multi_info_displ[i].setAttribute("data-index", i);
+
+// document
+// .querySelector("data-index",)
+// .addEventListener("click", clickOnShowButton);
+
+// function clickOnShowButton() {
+//     //document.body.innerHTML = ''
+//     // const paragraph = document.createElement('div')
+//     // paragraph.classList.add('div')
+//     // document.body.appendChild(paragraph)
 
 
- dates.forEach((itemFulldescription) => {
+//  dates.forEach((itemFulldescription) => {
 
 
-    const fullDesc = document.createElement('div')
-    fullDesc.classList.add('item-fullDesc')
+//     const fullDesc = document.createElement('div')
+//     fullDesc.classList.add('item-fullDesc')
 
-    const {title, date, fullDescription, image, summary} = itemFulldescription
-    fullDesc.innerHTML = 
-    `<div class= "more-info">
-    <p class = "full-description">${fullDescription}</p>
-    <img class="picture" src="${image}" alt="descriptive image">
-    </div>`
+//     const {title, date, fullDescription, image, summary} = itemFulldescription
+//     fullDesc.innerHTML = 
+//     `<div class= "more-info">
+//     <p class = "full-description">${fullDescription}</p>
+//     <img class="picture" src="${image}" alt="descriptive image">
+//     </div>`
 
-    document.body.appendChild(fullDesc)
-}
-)
-}
+//     document.body.appendChild(fullDesc)
+// }
+// )
+// }
 
-document.querySelector(".more-info")
+// document.querySelector(".more-info")
     
-}
+// }
 
 
 
