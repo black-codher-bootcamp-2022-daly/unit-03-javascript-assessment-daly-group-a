@@ -241,8 +241,12 @@
     font-family: Lato;
   }
  img {
-    width: 30%;
-    height: 30%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    padding-left: 60px;
+    width: 90%;
+    height: 60%;
  }
   .modal .modal-body img {
     width: 30%;
@@ -284,17 +288,26 @@
 
   .multi-close {
   cursor: pointer;
-  position: absolute;
+  position:absolute;
   top: 50%;
   right: 0%;
   padding: 12px 16px;
-  transform: translate(0%, -50%);
+  color: red;
+  /* //transform: translate(0%, -50%); */
   }
 
   .modal#show {
     opacity: 1;
     transform: scale(1);
     pointer-events: visible;
+  }
+  .full-description {
+    display: flex;
+    justify-content: left;
+    padding-left: 70px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .blur {

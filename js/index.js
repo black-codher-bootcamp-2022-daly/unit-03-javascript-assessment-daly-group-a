@@ -50,6 +50,7 @@ function makeTimeline(timelines){
     })
    
 }
+
 //ON CLICK BUTTON
 
 var multi_modal = document.getElementsByClassName("modal-multi");
@@ -69,11 +70,13 @@ for (let i = 0; i < modal_btn_multi.length; i++)
         multi_modal[ElementIndex].id= "show";
     };
 
-    // When the user clicks on <close button>, close the modal
+// When the user clicks on <close button>, close the modal
+
     close_multi[i].onclick = function() {
+
         var ElementIndex = this.getAttribute('data-index');
         multi_modal[ElementIndex].id= "hide";
-        this.parentElement.style.display = 'none';
+        this.parentElement.style.display = "none";
         
     };
     
@@ -101,72 +104,6 @@ function checkCards() {
         }
     })
 }
-
-
-
- // Setting index to each button
-  
-// function setDataIndex() {
-  
-//    for (let i= 0; i<multi_info_displ.length; i ++) 
-//    {
-//      multi_info_displ[i].setAttribute("data-index", i);
-    
-//    }
-  
-   
-// }
-
-// window.onload = function() {
-
-//     setDataIndex();
-// };
-
-
-//WORKING ON CLICK EVENT 
-
-// var multi_info_displ = document.querySelector(".timeline-item-more-info")
-
-// for (let i = 0; i < multi_info_displ.length; i++) {
-// multi_info_displ[i].setAttribute("data-index", i);
-
-// document
-// .querySelector("data-index",)
-// .addEventListener("click", clickOnShowButton);
-
-// function clickOnShowButton() {
-//     //document.body.innerHTML = ''
-//     // const paragraph = document.createElement('div')
-//     // paragraph.classList.add('div')
-//     // document.body.appendChild(paragraph)
-
-
-//  dates.forEach((itemFulldescription) => {
-
-
-//     const fullDesc = document.createElement('div')
-//     fullDesc.classList.add('item-fullDesc')
-
-//     const {title, date, fullDescription, image, summary} = itemFulldescription
-//     fullDesc.innerHTML = 
-//     `<div class= "more-info">
-//     <p class = "full-description">${fullDescription}</p>
-//     <img class="picture" src="${image}" alt="descriptive image">
-//     </div>`
-
-//     document.body.appendChild(fullDesc)
-// }
-// )
-// }
-
-// document.querySelector(".more-info")
-    
-// }
-
-
-
-
-
 
 
 
