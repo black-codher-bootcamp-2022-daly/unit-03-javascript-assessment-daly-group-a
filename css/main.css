@@ -1,3 +1,9 @@
+/*Lato font*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+/*Urbanist font*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
 :root {
     --time-color: #53a8b6;
     --button-color: #5585b5;
@@ -23,6 +29,7 @@
     padding-top: 40px;
     width: 100%;
     position: relative;
+    font-family: Lato;
   }
   
   .timeline {
@@ -32,6 +39,7 @@
     position: relative;
     width: 80vw;
     max-width: 80vw;
+   
   }
   
   .timeline-header {
@@ -40,12 +48,14 @@
     font-size: 4rem;
     color: #ffffff;
     padding: 20px 5px 20px 5px;
+    font-family: Lato;
   }
   
   .timeline-item {
     position: relative;
     width: 50%;
     padding: 10px 40px;
+    font-family: Lato;
     /*background-color:pink;*/
   }
   
@@ -60,12 +70,14 @@
     left: 50%;
     bottom: 0;
     top: 6%;
+    
   }
   
   .timeline-item {
     margin-bottom: 40px;
     width: 50%;
     position: relative;
+    font-family: Lato;
   }
   
   .timeline-items:last-child {
@@ -88,10 +100,12 @@
   .timeline-item:nth-child(odd) {
     text-align: right;
     left: 0;
+    font-family: Lato;
   }
   
   .timeline-item:nth-child(even) {
     left: 50%;
+    font-family: Lato;
   }
   
   /*add arrow pointers for left side*/
@@ -106,6 +120,7 @@
     border: medium solid white;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent white;
+    font-family: Lato;
   }
   
   /*add arrow pointers for right side*/
@@ -132,6 +147,7 @@
     /*color: #eaa023;*/
     margin: 6px 0 15px;
     padding-bottom: 50px;
+    font-family: Lato;
   }
   
   .info {
@@ -143,6 +159,7 @@
     transform:translateX(400%);
     transition: transform 0.4s ease;
     box-shadow: 13px 15px 29px -10px rgba(0, 0, 0, 0.75);
+    font-family: Lato;
   }
   
   .info.roll-in {
@@ -156,6 +173,7 @@
     text-transform: capitalize;
     font-weight: 500;
     padding-top: 20px;
+    font-family: Lato;
   }
   
   .info p {
@@ -164,6 +182,7 @@
     font-weight: 300;
     line-height: 22px;
     padding-bottom: 15px;
+    font-family: Lato;
   }
   
   #showButton {
@@ -176,11 +195,13 @@
     border-radius: 8px;
     letter-spacing: 0.5px;
     margin-top: 5px;
+    font-family: Lato;
   }
 
   .more-info {
     width: 100%;
     background-color: white;
+    font-family: Lato;
   }
 
   .modal {
@@ -203,6 +224,7 @@
     display: flex;
     justify-content: flex-end;
     padding: 15px 18px;
+    font-family: Lato;
   }
 
   .modal .modal-header button {
@@ -210,16 +232,22 @@
     font-size: 22px;
     color:rgba(0, 0, 0, 0.75);
     background-image: transparent;
+    font-family: Lato;
   }
 
   .modal .modal-body {
     text-align: center;
     justify-content: center;
+    font-family: Lato;
   }
-
+ img {
+    width: 30%;
+    height: 30%;
+ }
   .modal .modal-body img {
-    width: 50%;
-    margin: 10px 0 30px;
+    width: 30%;
+    margin: 10px 0 10px;
+    font-family: Lato;
   }
 
   .modal .modal-body h3 {
@@ -251,7 +279,16 @@
   .modal#hide {
     opacity: 0;
     transform: scale(.6);
-    pointer-events:none;
+    pointer-events: none;
+  }
+
+  .multi-close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
   }
 
   .modal#show {

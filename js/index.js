@@ -62,18 +62,21 @@ var close_multi = document.getElementsByClassName("multi-close");
 
 
 for (let i = 0; i < modal_btn_multi.length; i++)
+
 {
-    modal_btn_multi[i].onclick = function() {
+       modal_btn_multi[i].onclick = function() {
         var ElementIndex = this.getAttribute('data-index');
         multi_modal[ElementIndex].id= "show";
     };
 
-    // When the user clicks on <close button> (x), close the modal
+    // When the user clicks on <close button>, close the modal
     close_multi[i].onclick = function() {
         var ElementIndex = this.getAttribute('data-index');
-        multi_modal[ElementIndex].id = "hide";
+        multi_modal[ElementIndex].id= "hide";
+        this.parentElement.style.display = 'none';
+        
     };
-
+    
 }
 
 
