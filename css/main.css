@@ -214,11 +214,11 @@ body {
   }
 
   #modal-image {
-    width: 90%;
+    width: 65%;
     margin: 10px 0 30px;
   }
 
-#model-date {
+#modal-date {
     color: black;
     font-size: 20px;
   }
@@ -249,7 +249,7 @@ body {
     background-color: #5585b5;
   }
   
-  .modal#hide {
+  .modal#modal-container {
     opacity: 0;
     transform: scale(.6);
     pointer-events:none;

@@ -39,7 +39,7 @@ function makeTimeline(timelines){
 
         const modalElem = document.createElement('div')
         modalElem.classList.add("modal-multi", "modal")
-        modalElem.id = "hide"
+        modalElem.id = "modal-container"
         dateEl.innerHTML =`
                 <div class="info">
                     <span class="timeline-item-date">${date}</span>
@@ -50,10 +50,10 @@ function makeTimeline(timelines){
         `
         
         modalElem.innerHTML = `
-        <div class="modal-inner" id="modal-container">
+        <div class="modal-inner">
             <h1 id="modal-title">${title}<h1>
             <img id="modal-image" src=${image} alt="...">
-            <h3 id="model-date">${date}</h3>
+            <h3 id="modal-date">${date}</h3>
             <p id="modal-full-description">
                 ${fullDescription}
             </p>
@@ -92,7 +92,7 @@ for (let i = 0; i < modal_btn_multi.length; i++)
         var ElementIndex = this.getAttribute('data-index');
         // console.log(ElementIndex)
         console.log(multi_modal)
-        multi_modal[ElementIndex].id = "hide"
+        multi_modal[ElementIndex].id = "modal-container"
         background.classList.remove('blur');
         // console.log('hello')
     };
