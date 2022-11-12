@@ -16,15 +16,13 @@ const background = document.querySelector('.timeline')
 makeTimeline(dates)
 
 
-
-
 function makeTimeline(timelines){
     background.innerHTML = ''
     const headerEl = document.createElement('h2')
     headerEl.classList.add('timeline-header')
-    headerEl.textContent = 'Timeline'
+    headerEl.textContent = "Timeline for Mayme's Bakery"
     background.appendChild(headerEl)
-    let num = 1;
+    let num = 0;
 
     const modalElem = document.createElement('div')
     modalElem.classList.add("modal","modal-multi")
@@ -40,43 +38,43 @@ function makeTimeline(timelines){
         dateEl.classList.add('timeline-item')
 
         const modalElem = document.createElement('div')
-        modalElem.classList.add("modal-container","modal-multi", "modal")
+        modalElem.classList.add("modal-multi", "modal")
         modalElem.id = "hide"
         dateEl.innerHTML =`
                 <div class="info">
                     <span class="timeline-item-date">${date}</span>
-                    <h2 class="timeline-itme-title">${title}</h2>
+                    <h2 class="timeline-item-title">${title}</h2>
                     <p class="timeline-item-summary">${summary} </p>
                     <button class="timeline-item-more-info" id="showButton" data-index=${num}>Read More</button>
                 </div>
         `
         
         modalElem.innerHTML = `
-        <div class= "more-info">
-          <p class = "full-description">${fullDescription}</p>
-          <img class="picture" src="${image}" alt="descriptive image">
-          <button class= "multi-close" data-index=${num}>Close</button>
-        </div>`
+        <div class="modal-inner" id="modal-container">
+            <h1 id="modal-title">${title}<h1>
+            <img id="modal-image" src=${image} alt="...">
+            <h3 id="model-date">${date}</h3>
+            <p id="modal-full-description">
+                ${fullDescription}
+            </p>
+            <button class="multi-close" id="modal-close-button" data-index=${num}>Close</button>
+        </div>
+        `
      
         background.appendChild(dateEl)
         modalElem.setAttribute('data-index', num)
         document.body.appendChild(modalElem)
         num++
-
-      
     })
    
 }
 
 
 //ON CLICK BUTTON
-
 var multi_modal = document.getElementsByClassName("modal-multi");
 
 // Get the button that opens the modal
-
 var modal_btn_multi = document.getElementsByClassName("timeline-item-more-info");
-
 var close_multi = document.getElementsByClassName("multi-close");
 
 
@@ -84,25 +82,38 @@ for (let i = 0; i < modal_btn_multi.length; i++)
 {
     modal_btn_multi[i].onclick = function() {
         var ElementIndex = this.getAttribute('data-index');
-        multi_modal[ElementIndex].id= "show";
+        multi_modal[ElementIndex].id= "show"
+        background.classList.add('blur')
+        console.log(multi_modal)
     };
 
     // When the user clicks on <close button> (x), close the modal
     close_multi[i].onclick = function() {
         var ElementIndex = this.getAttribute('data-index');
-        multi_modal[ElementIndex].id = "hide";
+        // console.log(ElementIndex)
+        console.log(multi_modal)
+        multi_modal[ElementIndex].id = "hide"
+        background.classList.remove('blur');
+        // console.log('hello')
     };
 
 }
 
+// if modal on page but click is not on modal
+window.onclick = function(event) {
+    if (event.target === multi_modal[event.target.getAttribute('data-index')]) {
+        multi_modal[event.target.getAttribute('data-index')].id = "hide";
+        background.classList.remove('blur');
+        // console.log('here!!!')
+    }
+};
+
 
 // create scroll animation
 const cards = document.querySelectorAll('.info')
-
 window.addEventListener('scroll', checkCards)
 
 checkCards()
-
 function checkCards() {
     const triggerBottom = window.innerHeight / 5 * 4
 
