@@ -1,4 +1,4 @@
-[TODO: Replace with your Netflify status badge]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e59b19a5-3501-416f-893c-c30bdcfd5a93/deploy-status)](https://app.netlify.com/sites/lucent-fenglisu-62ef95/deploys)
 
 # JavaScript Assessment
 
