@@ -266,73 +266,59 @@ body {
   filter: blur(5px);
 }
 
-@media screen and (max-width: 700px) {
-  .timeline-item::before{
-    left: 7px;
-  }
-  .timeline-item:nth-child(even){
-    padding-left: 2%;
-    margin: 5%;
-    height: 300px;
-    margin-right:15px;
-    
-  }
-  .timeline-item:nth-child(odd){
-    padding-left: 2%;
-    text-align: left;
-    margin: 5%;
-  
-    
-  }
-  
+@media screen and (max-width: 740px) {
+
+/* vertical line */
+
+.timeline::after{
+  position: absolute;
+  left:4%;
+  margin-top: 5%;;
 }
-@media screen and (max-width: 400px) {
-  .info.roll-in{
-    width: 175%;
-    height: 330px;
-    
-  }
-  .timeline-item-summary{
-    font-size: smaller;
-  }
-  .timeline-item-title{
-    color: var(--button-color)
-  }
-  #showButton.timeline-item-more-info{
-    font-size: xx-small;
-    color: black;
-    padding: 10px;
-    background-color: green;
-    font-weight: bold;
-  }
-  .timeline-header{
-    font: size 80%;;
-    color: green;
-  }
-.timeline-item-date{
-  font-size:smaller;
-  font-weight: bolder;
-  color: green;
+/* odd card */
+
+.timeline-item:nth-child(odd){
+left:4%;
+text-align: left;
+padding-left: 10px;
+width: 70%;
 }
-.modal-inner{
-  width: 30%;
-  height: 30%;
-  margin-right: 45%;
+
+/* even card */
+
+.timeline-item:nth-child(even){
+left:4%;
+padding-left: 10px;
+width: 70%;
+}
+
+/* odd numbered circles */
+.timeline-item::after{
+  left: -30px;
+}
+
+/* even numbered circles */
+.timeline-item:nth-child(even)::after{
+  left:-30px;
+}
+/* odd pointers */
+.timeline-item:nth-child(odd)::before{
+  left:0;
+  rotate:180deg;
+
+}
+/* even pointers */
+.timeline-item:nth-child(even)::before{
+left:0;
+}
+
+.info {
+  transform:translateX(0%);
 }
 .multi-close{
-padding: 5%;
-font-size:50%
+  padding: 10px 10px;
 }
-.timeline-item::after{
-  display: none;
-}
-.timeline-item::before{
-  display: none;
-  
-}
-.timeline::after{
-  background-color:red;
-  display: none;
-
+.timeline-header{
+  font-size: 3rem;
 }
 }
