@@ -266,4 +266,59 @@ body {
   filter: blur(5px);
 }
 
+@media screen and (max-width: 740px) {
 
+/* vertical line */
+
+.timeline::after{
+  position: absolute;
+  left:4%;
+  margin-top: 5%;;
+}
+/* odd card */
+
+.timeline-item:nth-child(odd){
+left:4%;
+text-align: left;
+padding-left: 10px;
+width: 70%;
+}
+
+/* even card */
+
+.timeline-item:nth-child(even){
+left:4%;
+padding-left: 10px;
+width: 70%;
+}
+
+/* odd numbered circles */
+.timeline-item::after{
+  left: -30px;
+}
+
+/* even numbered circles */
+.timeline-item:nth-child(even)::after{
+  left:-30px;
+}
+/* odd pointers */
+.timeline-item:nth-child(odd)::before{
+  left:0;
+  rotate:180deg;
+
+}
+/* even pointers */
+.timeline-item:nth-child(even)::before{
+left:0;
+}
+
+.info {
+  transform:translateX(0%);
+}
+.multi-close{
+  padding: 10px 10px;
+}
+.timeline-header{
+  font-size: 3rem;
+}
+}
