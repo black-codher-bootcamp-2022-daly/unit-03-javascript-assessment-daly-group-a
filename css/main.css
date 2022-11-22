@@ -40,6 +40,7 @@ body {
   font-size: 4rem;
   color: #ffffff;
   padding: 20px 5px 20px 5px;
+  margin-bottom: 20px;
 }
 
 .timeline-item {
@@ -54,12 +55,12 @@ body {
   content: "";
   position: absolute;
   width: 2px;
-  height: 93%;
+  height: 90%;
   background-color: #fff;
   border: solid 3px var(--header-color);
   left: 50%;
-  bottom: 0;
-  top: 6%;
+  bottom: 0%;
+  top: 8%;
 }
 
 .timeline-item {
@@ -189,68 +190,66 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position:  fixed;
-    top: 20%;
-    left: 20%;
-    width: 100vh;
-    width: 60%px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
     transition: .4s;
     transform: translate(-50% -50%);
   }
 
-  .modal .modal-header{
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px 18px;
-  }
-
-  .modal .modal-header button {
-    cursor: pointer;
-    font-size: 22px;
-    color:rgba(0, 0, 0, 0.75);
-    background-image: transparent;
-  }
-
-  .modal .modal-body {
+  .modal-inner{
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    width: 50%;
     text-align: center;
     justify-content: center;
   }
 
-  .modal .modal-body img {
-    width: 50%;
+  #modal-title {
+    padding: 20px
+  }
+
+  #modal-image {
+    width: 65%;
     margin: 10px 0 30px;
   }
 
-  .modal .modal-body h3 {
+#modal-date {
     color: black;
     font-size: 20px;
   }
 
-  .modal .modal-body o {
+  #modal-full-description {
     color: brown;
     font-size: 16px;
     font-weight: 500px;
+    padding: 20px;
   }
 
-  .modal .modal-body button {
+
+  .multi-close{
     cursor: pointer;
-    margin: top 30px;font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 22px;
     background: red;
     color: white;
     padding: 12px 120px;
     border-radius: 6px;
     letter-spacing:1px;
     transition: .4s;
+    border: none;
   }
   
-  .modal .modal-body button:hover{
+  .multi-close:hover{
     background-color: #5585b5;
   }
   
-  .modal#hide {
+  .modal#modal-container {
     opacity: 0;
     transform: scale(.6);
     pointer-events:none;
@@ -266,5 +265,61 @@ body {
 .blur {
   filter: blur(5px);
 }
+ 
+@media screen and (max-width: 740px) {
 
-
+  /* vertical line */
+  
+  .timeline::after{
+    position: absolute;
+    left:4%;
+    margin-top: 5%;;
+  }
+  /* odd card */
+  
+  .timeline-item:nth-child(odd){
+  left:4%;
+  text-align: left;
+  padding-left: 10px;
+  width: 70%;
+  }
+  
+  /* even card */
+  
+  .timeline-item:nth-child(even){
+  left:4%;
+  padding-left: 10px;
+  width: 70%;
+  }
+  
+  /* odd numbered circles */
+  .timeline-item::after{
+    left: -30px;
+  }
+  
+  /* even numbered circles */
+  .timeline-item:nth-child(even)::after{
+    left:-30px;
+  }
+  /* odd pointers */
+  .timeline-item:nth-child(odd)::before{
+    left:0;
+    rotate:180deg;
+  
+  }
+  /* even pointers */
+  .timeline-item:nth-child(even)::before{
+  left:0;
+  }
+  
+  .info {
+    transform:translateX(0%);
+  }
+  .multi-close{
+    padding: 10px 10px;
+  }
+  .timeline-header{
+    font-size: 3rem;
+  }
+  }
+  
